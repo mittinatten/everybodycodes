@@ -1,6 +1,6 @@
-# Everybodycodes
+# Everybody Codes 2024
 
-Trying to do this in Elixir. To run a quest start a REPL
+Trying to do [Everybody Codes](https://everybody.codes/home) in Elixir. To run a quest start a REPL
 
 ```
 $ iex -S mix
