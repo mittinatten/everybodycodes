@@ -1,4 +1,8 @@
 defmodule Quest1 do
+  @moduledoc """
+  Helper functions for Quest1
+  """
+
   def strengthSingle(c) do
     case c do
       "A" ->

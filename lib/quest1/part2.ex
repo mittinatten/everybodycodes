@@ -8,8 +8,8 @@ defmodule Quest1.Part2 do
     |> Enum.sum()
   end
 
-  def solve() do
-    {:ok, data} = File.read(__DIR__ <> "/input2.txt")
+  def solve(inputFile) do
+    {:ok, data} = File.read(inputFile)
     calcNumberOfPotions(data)
   end
 end

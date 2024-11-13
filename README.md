@@ -9,5 +9,5 @@ $ iex -S mix
 and run e.g.
 
 ```
-iex> Quest1.Part1.solve()
+iex> Quest1.Part1.solve("path/to/input")
 ```
