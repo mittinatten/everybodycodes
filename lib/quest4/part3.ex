@@ -4,10 +4,11 @@ defmodule Quest4.Part3 do
     min = Enum.min(values)
     max = Enum.max(values)
 
+    # totally brute force
     for level <- min..max do
-      {Enum.map(values, &abs(&1 - level)) |> Enum.sum(), level}
+      Enum.map(values, &abs(&1 - level)) |> Enum.sum()
     end
-    |> Enum.min_by(fn {strikes, _} -> strikes end)
+    |> Enum.min()
   end
 
   def solve(inputFile) do
