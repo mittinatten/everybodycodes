@@ -6,7 +6,7 @@ defmodule Quest2.Part2 do
   end
 
   def checkShield(input) do
-    words = Quest2.getWords(input)
+    words = Quest2.parseWordsSpec(input)
     [_, _ | rows] = String.split(input, "\n")
 
     countLettersWithReverse(rows, words)

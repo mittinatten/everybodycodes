@@ -2,9 +2,9 @@ defmodule Quest2Tests do
   use ExUnit.Case
 
   test "parses words" do
-    assert Quest2.getWords("") == []
-    assert Quest2.getWords("WORDS: A") == ["A"]
-    assert Quest2.getWords("WORDS: A,B") == ["A", "B"]
+    assert Quest2.parseWordsSpec("") == []
+    assert Quest2.parseWordsSpec("WORDS: A") == ["A"]
+    assert Quest2.parseWordsSpec("WORDS: A,B") == ["A", "B"]
   end
 
   test "counts words" do

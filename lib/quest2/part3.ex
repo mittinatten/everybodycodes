@@ -38,7 +38,7 @@ defmodule Quest2.Part3 do
   end
 
   def checkArmour(input) do
-    words = Quest2.getWords(input)
+    words = Quest2.parseWordsSpec(input)
     [_, _ | untrimmed] = String.split(input, "\n")
 
     rows = Enum.map(untrimmed, &String.trim(&1)) |> Enum.filter(&(&1 != ""))

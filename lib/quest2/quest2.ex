@@ -1,7 +1,7 @@
 defmodule Quest2 do
   import Bitwise
 
-  def getWords(input) do
+  def parseWordsSpec(input) do
     if input == "" || String.starts_with?(input, "WORDS:") == false do
       []
     else
@@ -43,15 +43,14 @@ defmodule Quest2 do
   def getAllMatchingLettersCircular(rows, words) do
     Enum.map(rows, fn row ->
       Enum.flat_map(words, fn word ->
+        reverseWord = String.reverse(word)
         # this is not the most efficient way, but good enough for now
         for shift <- 0..max(String.length(word) - 1, 0) do
           rotatedLeft = RotateList.string_left(row, shift)
 
           mergeAllRows([
-            findLettersForWord(String.reverse(rotatedLeft), word)
-            |> Enum.reverse()
-            |> RotateList.right(shift),
-            findLettersForWord(rotatedLeft, word) |> RotateList.right(shift)
+            findLettersForWord(rotatedLeft, word) |> RotateList.right(shift),
+            findLettersForWord(rotatedLeft, reverseWord) |> RotateList.right(shift)
           ])
         end
       end)
@@ -73,6 +72,10 @@ defmodule Quest2 do
     end)
   end
 
+  @doc """
+  Returns a list with 0s or 1s for that indicate if a position in the row is
+  part of the given word
+  """
   def findLettersForWord(row, word) do
     size = String.length(row)
     startingValue = List.duplicate(0, size)
